@@ -1,6 +1,7 @@
 import Image from "next/image";
 import localFont from "next/font/local";
 import ImageSlider from "./comp/ImageSlider";
+import Navbar from "./comp/Navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,22 +16,26 @@ const geistMono = localFont({
 
 export default function Home() {
   return (
-
     <div
-      className={`${geistSans.variable} ${geistMono.variable} items-center justify-items-center min-h-screen gap-10 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
+      className={`${geistSans.variable} ${geistMono.variable} items-center grid justify-items-center min-h-screen font-[family-name:var(--font-geist-sans)] relative min-h-screen bg-gray-800`}
     >
-      <div> HIDDEN NAVBAR</div>
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <p>images here</p>
+      {/* <img
+        src="/images/bg.jpg" // Replace with your image path
+        alt="Background Image"
+        className="absolute inset-0 w-full h-full object-cover" // Make image cover the full screen
+      /> */}
+      <Navbar/>
+      <main className="flex flex-col gap-8 row-start-2 items-center justify-items-center sm:items-start">
         {/* <Image
               // className="dark:invert"
               src="/images/1.jpg"
               alt="Vercel logomark"
               width={1000}
               height={2000}
-            /> */}
+              /> */}
 
           <ImageSlider/>
+          <p>IMAGES CAPTION</p>
 
         {/* <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
@@ -71,9 +76,7 @@ export default function Home() {
           </a> */}
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-       
-      </footer>
-    </div>
+
+      </div>
   );
 }
